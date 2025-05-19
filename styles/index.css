@@ -7,77 +7,113 @@
     box-sizing: border-box;
 }
 
+body {}
+
 /* header-section */
-header {}
-
-
-header section {
-    display: grid;
-    grid-template-areas:
-        "logo burger"
-        "search search"
-        "nav nav"
-        "fav fav"
-
-    ;
-
+header {
+    width: 100%;
+    margin: 28px 0;
 }
 
 header .navbar {
-    padding: 24px 16px;
+    display: grid;
+    grid-template-areas:
+        "logo hamburger"
+    ;
+    padding: 0 16px;
+    align-items: center;
+    gap: 16px 0;
+}
+
+header .navbar.show {
+    grid-template-areas:
+        "logo hamburger"
+        "search search"
+        "menus menus"
+        "fav fav"
+    ;
 }
 
 header .logo {
     grid-area: logo;
-    justify-self: start;
-    align-self: center;
 }
 
 header .search {
     display: none;
     grid-area: search;
-    margin-top: 24px;
+    height: 56px;
+    position: relative;
 }
 
-header nav {
+header .search.show {
+    display: block;
+}
+
+header .search img {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+header .search input {
+    height: inherit;
+    width: 100%;
+    padding-left: 34px;
+    border: none;
+    outline: none;
+    background-color: #2e2e2e20;
+    border-radius: 8px;
+    color: #656565;
+}
+
+.search input:focus,
+.search input:active {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+header .menus {
     display: none;
-    grid-area: nav;
-    margin: 24px 0;
+    grid-area: menus;
 }
 
-header nav ul {
+header .menus.show {
+    display: block;
+}
+
+header .menus ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 12px;
-
 }
 
-header nav ul li {
-    list-style: none;
+header .menus ul li {}
 
-}
-
-header nav ul li a {
+header .menus ul li a {
     text-decoration: none;
-    color: #2e2e2e9a;
+    color: #656565;
 }
 
-header nav ul li a.active {
-    color: #2e2e2e;
-}
-
-header .show {
-    display: flex !important;
+header .menus ul li a.active {
+    color: #000;
 }
 
 header .utility-section {
+
     display: none;
     grid-area: fav;
     gap: 16px;
 }
 
+header .utility-section.show {
+    display: flex;
+}
+
 header .hamburger {
-    grid-area: burger;
+    grid-area: hamburger;
     justify-self: end;
 }
 
@@ -87,34 +123,54 @@ header .hamburger #close {
 
 header .categories-list {
     display: none;
-    background-color: #2E2E2E;
-    padding: 16px;
-    color: #ffffff;
+    background: #2E2E2E;
+    margin-top: 16px;
+    padding: 0 16px;
+}
+
+header .categories-list.show {
+    display: block;
 }
 
 header .categories-list ul {
-    list-style: none;
     display: flex;
+    list-style: none;
     overflow-x: auto;
+    gap: 8px;
     align-items: center;
-    gap: 12px;
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
+    padding: 8px 0;
     scrollbar-width: none;
-    /* Firefox */
 }
 
 header .categories-list ul li {
     display: flex;
-    align-items: center;
+    color: #ffffff;
     gap: 8px;
-    border-right: 1px solid gray;
-    padding-right: 12px;
-    height: fit-content;
-    min-width: fit-content;
+    align-items: center;
+}
+
+header .categories-list ul li span {
+    white-space: nowrap;
 }
 
 header .categories-list ul li img {
-    width: 24px;
-    fill: #fff;
+    width: 20px;
+    height: 20px;
 }
+
+header .categories-list ul li.line {
+    display: block;
+    /* override flex from li */
+    width: 1px;
+    height: 20px;
+    background-color: #fff;
+    flex-shrink: 0;
+}
+
+
+
+@media only screen and (min-width:768px) {}
+
+@media only screen and (min-width:1024px) {}
+
+@media only screen and (min-width:1440px) {}
