@@ -169,8 +169,76 @@ header .categories-list ul li.line {
 
 
 
-@media only screen and (min-width:768px) {}
+@media only screen and (min-width:768px) {
+    header .navbar {
+        grid-template-columns: .5fr 2.5fr .25fr;
+        grid-template-areas:
+            "logo search hamburger"
+        ;
+    }
 
-@media only screen and (min-width:1024px) {}
+    header .navbar.show {
+        grid-template-columns: .5fr 2.5fr .25fr;
+        grid-template-areas:
+            "logo search hamburger"
+            "menus menus menus"
+            "fav fav fav";
+    }
 
-@media only screen and (min-width:1440px) {}
+    header .search {
+        display: block;
+    }
+
+    header .categories-list ul {
+        gap: 13px;
+    }
+}
+
+@media only screen and (min-width:1024px) {
+
+    header .navbar {
+        grid-template-columns: .25fr 2.35fr 1.70fr .25fr;
+        grid-template-areas:
+            "logo search menus fav";
+        gap: 16px 32px;
+    }
+
+    header .search {
+        display: block;
+    }
+
+    header .categories-list ul {
+        gap: 13px;
+    }
+
+    header .hamburger {
+        display: none;
+    }
+
+    header .menus {
+        display: block;
+    }
+
+    header .menus ul {
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    header .utility-section {
+        display: flex;
+        gap: 24px;
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    header .navbar {
+        max-width: 1120px;
+        grid-template-columns: .25fr 2.35fr 1.75fr .25fr;
+        margin: 0 auto;
+        padding: 0px 0px;
+    }
+
+    header .menus ul {
+        gap: 52px;
+    }
+}
